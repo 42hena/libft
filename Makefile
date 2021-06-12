@@ -1,12 +1,40 @@
-Name =	libft.a
-SRCS =	ft_memset.c	ft_bzero.c	ft_memcpy.c \
-		ft_memccpy.c ft_memmove.c ft_memchr.c \
-		ft_memcmp.c ft_strlen.c ft_strcpy.c \
-	ft_strlcat.c ft_strchr.c ft_strrchr.c \
-	ft_strnstr.c ft_strncmp.c ft_atoi.c \
-	ft_isalpha.c ft_isdigit.c ft_isalnum.c \
-	ft_isascii.c ft_isprint.c ft_toupper.c \
-	ft_tolower.c ft_calloc.c ft_strdup.c \
+NAME	=	libft.a
+SRCS = = ft_memset \
+		ft_bzero \
+		ft_memcpy \
+		ft_memccpy \
+		ft_memmove \
+		ft_memchr \
+		ft_memcmp \
+		ft_strlen \
+		ft_strlcpy \
+		ft_strlcat \
+		ft_strchr \
+		ft_strrchr \
+		ft_strnstr \
+		ft_strncmp \
+		ft_atoi \
+		ft_isalpha \
+		ft_isdigit \
+		ft_isalnum \
+		ft_isascii \
+		ft_isprint \
+		ft_toupper \
+		ft_tolower \
+		ft_calloc \
+		ft_strdup \
+		ft_substr \
+		ft_strjoin \
+		ft_strtrim \
+		ft_split \
+		ft_itoa \
+		ft_strmapi \
+		ft_putchar_fd \
+		ft_putstr_fd \
+		ft_putendl_fd \
+		ft_putnbr_fd \
+		ft_strtok \
+		ft_strcmp \
 
 CFLAGS = -Wall -Wextra -Werror
 OBJS = $(SRCS:.c = .o)
@@ -23,4 +51,3 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
-

@@ -1,29 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/12 13:52:25 by hena              #+#    #+#             */
-/*   Updated: 2021/06/12 14:23:07 by hena             ###   ########.fr       */
+/*   Created: 2021/06/12 14:23:35 by hena              #+#    #+#             */
+/*   Updated: 2021/06/12 14:32:30 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-char *ft_substr(char const *s, unsigned int start, size_t len)
+size_t ft_strlen(char *s)
 {
-	char *p;
 	size_t	i;
 
 	i = 0;
-	p = (char *)malloc(sizeof(char) * (len + 1));
-	if(!p)
-		return (NULL);
-	for (i = 0 ; i < len ; i++)
+	while(s[i])
+		i++;
+	return (i);
+}
+
+char *ft_strjoin(char const *s1, char const *s2)
+{
+	int	cnt;
+	char *p;
+	int	i;
+	int	j;
+
+	cnt = 0;
+	cnt += ft_strlen(s1);
+	cnt += ft_strlen(s2);
+
+	p = (char *)malloc(sizeof(char) * cnt + 1);
+	while(s1[j])
 	{
-		p[i] = s[start+i];
+		p[j] = s1[j];
+		j++;
+	}
+	i = j;
+	j = 0;
+	while(s2[j])
+	{
+		p[i] = s2[j];
+		i++;
+		j++;
 	}
 	return (p);
 }
