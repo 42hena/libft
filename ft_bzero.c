@@ -1,21 +1,25 @@
-void	ft_bzero(void *s size_t n)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/12 16:38:35 by hena              #+#    #+#             */
+/*   Updated: 2021/06/12 16:41:01 by hena             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdlib.h>
+
+void		ft_bzero(void *s, size_t n)
 {
 	size_t	i;
-	
+
 	i = 0;
-	for (i = 0 ; i < n ; i++)
+	while (i < n)
+	{
 		*(s + i) = 0;
+		i++;
+	}
 }
-
-#include <strings.h>
-#include <stdio.h>
-
-int main()
-{
-	char arr1[] = "hello world";
-	char arr2[] = "hello world";
-
-	//ft_bzero(arr2, 5*sizeof(char));
-	bzero(arr1,5*sizeof(char));
-	printf("%s",arr1);
-}//보류

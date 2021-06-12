@@ -1,10 +1,26 @@
-void * calloc(size_t count, size_t size)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/12 17:22:31 by hena              #+#    #+#             */
+/*   Updated: 2021/06/12 17:23:18 by hena             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+void	*ft_calloc(size_t count, size_t size)
 {
-	void * p;
-	size_t i;
+	void	*p;
+	size_t	i;
+	
 	p = (void *)malloc(sizeof(void*) * size);
-	for (i=0 ; i<size ; i++){
+	i = 0;
+	while (i < size)
+	{
 		p[i] = 0;
+		i++;
 	}
-	return p;
+	return (p);
 }

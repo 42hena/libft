@@ -1,10 +1,23 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/12 16:59:37 by hena              #+#    #+#             */
+/*   Updated: 2021/06/12 17:01:44 by hena             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	memcmp(const void *s1, const void *s2, size_t n)
+#include "stdlib.h"
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	while (*s1 || *s2)
 	{
-		*s1 > *s2 ?  return (*s1-*s2) : return (*s1-*s2);
+		if (*s1 != *s2)
+			return (*s1 > *s2 ? (*s1 - *s2) : (*s1 - *s2));
 	}
 	return (0);
 }

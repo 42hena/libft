@@ -1,3 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/06/12 17:04:26 by hena              #+#    #+#             */
+/*   Updated: 2021/06/12 17:05:16 by hena             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
@@ -8,7 +22,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-size_t	strlcpy(char * dst, char * src, size_t dstsize)
+size_t	strlcpy(char *dst, char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	temp;

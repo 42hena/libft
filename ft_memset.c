@@ -6,18 +6,21 @@
 /*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 13:26:50 by hena              #+#    #+#             */
-/*   Updated: 2021/06/12 13:26:58 by hena             ###   ########.fr       */
+/*   Updated: 2021/06/12 16:44:20 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void * ft_memset(void *b, int c, size_t len)
+#include "libft.h"
+
+void		*ft_memset(void *b, int c, size_t len)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
-
-	for(i = 0 ; i < len ; i++)
-		*((char *)b+i) = c;
-
-	return (b);	
+	while (i < len)
+	{
+		*((char *)b + i) = c;
+		i++;
+	}
+	return (b);
 }
