@@ -1,55 +1,49 @@
-SRCS = ft_memset.c\
-		ft_bzero.c\
-		ft_memcpy.c\
-			ft_memccpy.c\
-			ft_memmove.c\
-			ft_memchr.c\
-			ft_memcmp.c\
-			ft_strlen.c\
-			ft_strlcpy.c\
-			ft_strlcat.c\
-			ft_strchr.c\
-			ft_strrchr.c\
-			ft_strnstr.c\
-			ft_strncmp.c\
-			ft_atoi.c\
-			ft_isalpha.c\
-			ft_isdigit.c\
-			ft_isalnum.c\
-			ft_isascii.c\
-			ft_isprint.c\
-			ft_toupper.c\
-			ft_tolower.c
+NAME = libft.a
+CC = gcc
+CFLAG = -Wall -Wextra -Werror
+RM = rm -f
+AR = ar
+ARFLAGS = crs
+INCLUDES= ./libft.h 
+SRCS = ft_memset.c		\
+	   ft_bzero.c		\
+	   ft_memcpy.c		\
+	   ft_memccpy.c		\
+	   ft_memmove.c		\
+	   ft_memchr.c		\
+	   ft_memcmp.c		\
+	   ft_strlen.c		\
+	   ft_strlcpy.c		\
+	   ft_strlcat.c		\
+	   ft_strchr.c		\
+	   ft_strrchr.c		\
+		ft_strnstr.c	\
+		ft_strncmp.c	\
+		ft_atoi.c		\
+		ft_isalpha.c	\
+		ft_isdigit.c	\
+		ft_isalnum.c	\
+		ft_isascii.c	\
+		ft_isprint.c	\
+		ft_toupper.c	\
+		ft_tolower.c	\
+		ft_calloc.c		\
+		ft_strdup.c
 
+OBJS = $(SRCS:.c=.o)
 
-OBJS		=	$(SRCS:.c=.o)
+all : $(NAME)
 
-NAME		=	libft.a
-RM		=	rm -f
-LIB		=	ar rcu
-CC		=	gcc
-CFLAGS		=	-Wall -Wextra -Werror
+%.o : %.c
+	$(CC) $(CFLAG) -c $< -o $@
 
-ifdef WITH_BONUS
-	OBJ_SWITCH = $(OBJS_BONUS) 
-else
-	OBJ_SWITCH = $(OBJS)
-endif
+clean :
+	$(RM) $(OBJS)
 
-$(NAME)		:	$(OBJ_SWITCH)
-			$(LIB) $@ $^
+fclean : clean
+	$(RM) $(NAME)
 
-all		:	bonus $(NAME)
+re : fclean all
 
-clean		:
-			$(RM) $(OBJS)
-
-fclean		:	clean
-			$(RM) $(NAME)
-
-re		:	fclean all
-
-bonus		:
-			$(MAKE) WITH_BONUS=1 $(NAME)
-
-.PHONY		:	all clean fclean re bonus
+$(NAME) : $(OBJS)
+	$(AR) $(ARFLAGS) $@ $^

@@ -6,7 +6,7 @@
 /*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 17:09:40 by hena              #+#    #+#             */
-/*   Updated: 2021/06/12 17:10:59 by hena             ###   ########.fr       */
+/*   Updated: 2021/06/20 17:50:12 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*strchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == c)
-			return (&s[i]);
+			return ((char*)&s[i]);
 		i++;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 13:26:50 by hena              #+#    #+#             */
-/*   Updated: 2021/06/20 13:34:23 by hena             ###   ########.fr       */
+/*   Updated: 2021/06/20 15:18:25 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	*ft_memset(void *b, int c, size_t len)
 	size_t			i;
 	unsigned char	*p;
 
-	b = p;
+	p = b;
 	i = 0;
 	while (i < len)
 	{
-		*(b + i) = c;
+		p[i] = c;
 		i++;
 	}
 	return (b);

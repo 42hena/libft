@@ -6,31 +6,27 @@
 /*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 16:49:46 by hena              #+#    #+#             */
-/*   Updated: 2021/06/20 14:51:00 by hena             ###   ########.fr       */
+/*   Updated: 2021/06/20 19:51:39 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void				*ft_memccpy(void *restrict dst,
-		const void *restrict src, int c, size_t n)
+void				*ft_memccpy(void *dst,
+		const void *src, int c, size_t n)
 {
 	size_t			i;
-	unsigned char	*p;
-	unsigned char	*q;
 
-	dst = p;
-	src = q;
 	i = 0;
 	while (i < n)
 	{
-		*(p + i) = *(q + i);
-		if ((unsigned char)c == *(q + i))
+		*((unsigned char *)dst + i) = *((unsigned char *)src + i);
+		if ((unsigned char)c == *((unsigned char *)src + i))
 			break ;
 		i++;
 	}
 	if (i == n)
 		return ((void*)0);
 	else
-		return (p + i + 1);
+		return (dst + i + 1);
 }

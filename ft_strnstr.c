@@ -6,7 +6,7 @@
 /*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 17:12:54 by hena              #+#    #+#             */
-/*   Updated: 2021/06/12 17:13:23 by hena             ###   ########.fr       */
+/*   Updated: 2021/06/20 21:02:11 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,22 @@ char	*ft_strnstr(const char *haystack, const char *neddle, size_t len)
 
 	i = 0;
 	j = 0;
-	while (haystack[i])
+	while (i + 1 < len && haystack[i])
 	{
-		if (haystact[i] == neddle[j])
+		if (haystack[i] == neddle[j])
 		{
 			while (neddle[j])
+			{
 				if (haystack[i] != neddle[j])
 					break ;
+				if (neddle[j] == 0)
+					return ((char *)haystack + i);
+				i++;
+				j++;
+			}
 			j = 0;
 		}
 		i++;
 	}
+	return (NULL);
 }
