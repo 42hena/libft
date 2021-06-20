@@ -6,21 +6,18 @@
 /*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 17:02:09 by hena              #+#    #+#             */
-/*   Updated: 2021/06/12 17:02:51 by hena             ###   ########.fr       */
+/*   Updated: 2021/06/20 15:01:25 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	cnt;
 
 	cnt = 0;
-	while (*s)
-	{
-		s++;
+	while (s[cnt])
 		cnt++;
-	}
 	return (cnt);
 }

@@ -6,23 +6,14 @@
 /*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 17:04:26 by hena              #+#    #+#             */
-/*   Updated: 2021/06/12 17:05:16 by hena             ###   ########.fr       */
+/*   Updated: 2021/06/20 15:03:43 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-size_t	strlcpy(char *dst, char *src, size_t dstsize)
+size_t		strlcpy(char *restrict dst,
+		const char *restrict src, size_t dstsize)
 {
 	size_t	i;
 	size_t	temp;

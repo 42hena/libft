@@ -6,16 +6,18 @@
 /*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 16:38:35 by hena              #+#    #+#             */
-/*   Updated: 2021/06/12 16:41:01 by hena             ###   ########.fr       */
+/*   Updated: 2021/06/20 14:40:09 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void		ft_bzero(void *s, size_t n)
+void				ft_bzero(void *s, size_t n)
 {
-	size_t	i;
+	size_t			i;
+	unsigned char	*p;
 
+	s = p;
 	i = 0;
 	while (i < n)
 	{

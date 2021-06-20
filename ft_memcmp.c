@@ -6,18 +6,27 @@
 /*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 16:59:37 by hena              #+#    #+#             */
-/*   Updated: 2021/06/12 17:01:44 by hena             ###   ########.fr       */
+/*   Updated: 2021/06/20 14:59:53 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdlib.h"
+#include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int					ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	while (*s1 || *s2)
+	size_t			i;
+	unsigned char	*p;
+	unsigned char	*q;
+
+	p = s1;
+	q = s2;
+	i = 0;
+	while (i < n && (*p || *q))
 	{
-		if (*s1 != *s2)
-			return (*s1 > *s2 ? (*s1 - *s2) : (*s1 - *s2));
+		if (*p != *q)
+			return (*p > *q ? (*p - *q) : (*p - *q));
+		p++;
+		q++;
 	}
 	return (0);
 }

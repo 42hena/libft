@@ -6,22 +6,24 @@
 /*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 16:54:28 by hena              #+#    #+#             */
-/*   Updated: 2021/06/12 16:56:43 by hena             ###   ########.fr       */
+/*   Updated: 2021/06/20 14:53:54 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void	*memmove(void *dst, const void *src, size_t len)
+void				*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t i;
+	size_t			i;
+	unsigned char	*p;
+	unsigned char	*q;
 
-	if (src < dst)
+	if (p < q)
 	{
 		i = len - 1;
 		while (i >= 0)
 		{
-			*(dst + i) = *(src + i);
+			*(p + i) = *(q + i);
 			i--;
 		}
 	}
@@ -30,8 +32,9 @@ void	*memmove(void *dst, const void *src, size_t len)
 		i = 0;
 		while (i < len)
 		{
-			*(dst + i) = *(src + i);
+			*(p + i) = *(q + i);
 			i++;
 		}
 	}
+	return (p);
 }
