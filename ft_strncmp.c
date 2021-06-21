@@ -6,15 +6,15 @@
 /*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 17:14:00 by hena              #+#    #+#             */
-/*   Updated: 2021/06/21 20:01:53 by hena             ###   ########.fr       */
+/*   Updated: 2021/06/21 21:54:57 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			ft_strncmp(const char *s1, const char *s2, size_t n)
+int					ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t		i;
+	size_t			i;
 	unsigned char	*p1;
 	unsigned char	*p2;
 

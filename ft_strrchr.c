@@ -6,7 +6,7 @@
 /*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 17:12:05 by hena              #+#    #+#             */
-/*   Updated: 2021/06/21 17:16:20 by hena             ###   ########.fr       */
+/*   Updated: 2021/06/21 23:55:04 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strrchr(const char *s, int c)
 
 	p = (char *)s;
 	i = 0;
-	i = strlen(s);
+	i = ft_strlen(s);
 	while (i >= 0)
 	{
 		if (p[i] == (unsigned char)c)
