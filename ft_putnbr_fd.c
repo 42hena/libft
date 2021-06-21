@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/12 17:12:05 by hena              #+#    #+#             */
-/*   Updated: 2021/06/21 17:16:20 by hena             ###   ########.fr       */
+/*   Created: 2021/06/12 14:38:39 by hena              #+#    #+#             */
+/*   Updated: 2021/06/21 20:49:43 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	print_nbr(int n, int fd)
 {
-	int		i;
-	char	*p;
+	if (n >= 10)
+		print_nbr(n / 10, fd);
+	write(fd, &"0123456789"[n % 10], 1);
+}
 
-	p = (char *)s;
-	i = 0;
-	i = strlen(s);
-	while (i >= 0)
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (fd < 0)
+		return ;
+	if (n == -2147483648)
 	{
-		if (p[i] == (unsigned char)c)
-			return (p + i);
-		i--;
+		write(fd, "-2147483648", 11);
+		return ;
 	}
-	return (0);
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n *= -1;
+	}
+	print_nbr(n, fd);
 }

@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/12 17:12:05 by hena              #+#    #+#             */
-/*   Updated: 2021/06/21 17:16:20 by hena             ###   ########.fr       */
+/*   Created: 2021/06/12 17:33:30 by hena              #+#    #+#             */
+/*   Updated: 2021/06/21 19:46:56 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+char	*ft_strdup(const char *s1)
 {
-	int		i;
+	size_t	cnt;
+	size_t	i;
 	char	*p;
 
-	p = (char *)s;
+	cnt = ft_strlen(s1);
+	p = (char *)ft_calloc(cnt + 1, sizeof(char));
 	i = 0;
-	i = strlen(s);
-	while (i >= 0)
+	while (i < cnt)
 	{
-		if (p[i] == (unsigned char)c)
-			return (p + i);
-		i--;
+		p[i] = s1[i];
+		i++;
 	}
-	return (0);
+	p[i] = 0;
+	return (p);
 }

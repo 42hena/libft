@@ -54,4 +54,3 @@ make
 read $a
 echo -e "\033[32;1m"finished, clean everything"\033[m"
 make fclean
-rm -rf libft.sh
