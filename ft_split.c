@@ -6,23 +6,17 @@
 /*   By: hena <hena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 19:12:46 by hena              #+#    #+#             */
-/*   Updated: 2021/03/17 05:40:06 by hena             ###   ########.fr       */
+/*   Updated: 2021/06/22 21:19:57 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <stdlib.h>
 
-int		is_charset(char ch, char *charset)
+int		is_charset(char ch, char c)
 {
-	int		i;
-
-	i = 0;
-	while (charset[i])
-	{
-		if (ch == charset[i])
-			return (1);
-		i++;
-	}
+	if (ch == c)
+		return (1);
 	return (0);
 }
 
@@ -39,19 +33,22 @@ void	ft_strncpy(char *dest, char *src, int size)
 	dest[i] = 0;
 }
 
-int		calcol(char *str, char *charset)
+int		calcol(char const *str, char c)
 {
 	int		cnt;
 	int		i;
 
 	cnt = 0;
 	i = 0;
+
+	if (is_charset(str[i], c))
+		i++;
 	while (str[i])
 	{
-		if (!is_charset(str[i], charset) && str[i])
+		if (!is_charset(str[i], c) && str[i])
 		{
 			cnt++;
-			while (!is_charset(str[i], charset) && str[i])
+			while (!is_charset(str[i], c) && str[i])
 				i++;
 		}
 		i++;
@@ -59,7 +56,7 @@ int		calcol(char *str, char *charset)
 	return (cnt);
 }
 
-char	**calrow(char **p, char *str, char *charset)
+char	**calrow(char **p, char *str, char charset)
 {
 	int		i;
 	int		start;
@@ -88,7 +85,7 @@ char	**calrow(char **p, char *str, char *charset)
 	return (p);
 }
 
-char	**ft_split(char *str, char *charset)
+void	ft_split(char const *s, char c)
 {
 	int		cnt;
 	int		i;
@@ -96,10 +93,22 @@ char	**ft_split(char *str, char *charset)
 
 	cnt = 0;
 	i = 0;
-	cnt = calcol(str, charset);
+	if (s == NULL)
+		return ;
+	cnt = calcol(s, c);
 	p = (char **)malloc(sizeof(char *) * (cnt + 1));
 	if (!p)
-		return (0);
-	p = calrow(p, str, charset);
-	return (p);
+		return ;
+	printf("%d",cnt);
+	//p = calrow(p, str, charset);
+	//return (p);
 }
+
+int main()
+{
+	char str[] = "hello.hi.hi";
+	char c='.';
+	ft_split(str,c);
+}
+
+
