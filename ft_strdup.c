@@ -6,7 +6,7 @@
 /*   By: hena <hena@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/12 17:33:30 by hena              #+#    #+#             */
-/*   Updated: 2021/06/21 19:46:56 by hena             ###   ########.fr       */
+/*   Updated: 2021/06/22 14:01:56 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ char	*ft_strdup(const char *s1)
 	char	*p;
 
 	cnt = ft_strlen(s1);
-	p = (char *)ft_calloc(cnt + 1, sizeof(char));
+	if (!(p = (char *)ft_calloc(cnt + 1, sizeof(char))))
+		return (0);
 	i = 0;
 	while (i < cnt)
 	{
