@@ -6,109 +6,116 @@
 /*   By: hena <hena@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 19:12:46 by hena              #+#    #+#             */
-/*   Updated: 2021/06/22 21:19:57 by hena             ###   ########.fr       */
+/*   Updated: 2021/06/23 15:23:25 by hena             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int		is_charset(char ch, char c)
-{
-	if (ch == c)
-		return (1);
-	return (0);
-}
-
-void	ft_strncpy(char *dest, char *src, int size)
-{
-	int		i;
-
-	i = 0;
-	while (src[i] && i < size)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = 0;
-}
-
-int		calcol(char const *str, char c)
+int			calcol(char const *s, char c)
 {
 	int		cnt;
 	int		i;
 
 	cnt = 0;
 	i = 0;
-
-	if (is_charset(str[i], c))
-		i++;
-	while (str[i])
+	while (s[i])
 	{
-		if (!is_charset(str[i], c) && str[i])
+		if (s[i] == c)
+			i++;
+		else
 		{
 			cnt++;
-			while (!is_charset(str[i], c) && str[i])
+			while ((s[i] != c) && s[i])
 				i++;
 		}
-		i++;
 	}
 	return (cnt);
 }
 
-char	**calrow(char **p, char *str, char charset)
+char		**frees(char **p, int second)
 {
-	int		i;
-	int		start;
-	int		end;
-	int		j;
+	int	i;
 
-	j = 0;
-	i = 0;
-	while (str[i])
-	{
-		if (!is_charset(str[i], charset))
-		{
-			start = i;
-			while (!is_charset(str[i], charset) && str[i])
-				i++;
-			end = i;
-			p[j] = (char *)malloc(sizeof(char) * (end - start + 1));
-			if (!p[j])
-				return (0);
-			ft_strncpy(p[j], &str[start], end - start);
-			j++;
-		}
-		i++;
-	}
-	p[j] = 0;
-	return (p);
+	i = -1;
+	while (++i < second)
+		free(p[i]);
+	free(p);
+	return (0);
 }
 
-void	ft_split(char const *s, char c)
+char		**calrow(char **p, char const *s, char c)
+{
+	int		i;
+	int		cnt;
+	char	**q;
+
+	q = p;
+	i = 0;
+	cnt = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			i++;
+		else
+		{
+			while ((s[i] != c) && s[i])
+			{
+				i++;
+				cnt++;
+			}
+			if (!(*p = (char *)malloc(sizeof(char) * cnt + 1)))
+				return (frees(q, i));
+			p++;
+			cnt = 0;
+		}
+	}
+	return (q);
+}
+
+char		**putrow(char **p, char const *s, char c)
+{
+	int		i;
+	int		cnt;
+	char	**q;
+
+	q = p;
+	i = 0;
+	cnt = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			i++;
+		else
+		{
+			while ((s[i] != c) && s[i])
+			{
+				(*p)[cnt] = s[i];
+				i++;
+				cnt++;
+			}
+			(*p)[cnt] = 0;
+			p++;
+			cnt = 0;
+		}
+	}
+	return (q);
+}
+
+char		**ft_split(char const *s, char c)
 {
 	int		cnt;
-	int		i;
 	char	**p;
 
 	cnt = 0;
-	i = 0;
 	if (s == NULL)
-		return ;
+		return (0);
 	cnt = calcol(s, c);
-	p = (char **)malloc(sizeof(char *) * (cnt + 1));
-	if (!p)
-		return ;
-	printf("%d",cnt);
-	//p = calrow(p, str, charset);
-	//return (p);
+	if (!(p = (char **)malloc(sizeof(char *) * (cnt + 1))))
+		return (0);
+	p[cnt] = 0;
+	p = calrow(p, s, c);
+	p = putrow(p, s, c);
+	return (p);
 }
-
-int main()
-{
-	char str[] = "hello.hi.hi";
-	char c='.';
-	ft_split(str,c);
-}
-
-
